@@ -28,7 +28,7 @@ public static void merge(int[] arr, int low, int mid, int high){
 
     //insert back tempArr to arr
     for(int i = low;i<=high;i++){
-        arr[i] = tempArr.get(i=low);
+        arr[i] = tempArr.get(i-low);
     }
 }
 
