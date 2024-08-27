@@ -1,4 +1,5 @@
 // Bubble sort program
+//push maximum ele at last by swapping adjacent elements
 
 public static void bubbleSort(int[] arrayToSort){
     for(int index = arraySize - 1;index >= 0;index--){

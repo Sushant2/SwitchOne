@@ -1,4 +1,5 @@
 // Insertion sort program
+//first ele is always at its right place
 
 public static void insertionSort(int[] arrayToSort){
     for(int index = 0;index<=n-1;index++){

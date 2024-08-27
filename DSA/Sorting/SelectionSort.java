@@ -1,4 +1,5 @@
 // selection sort program
+//select the minimum & bring it forward
 
 public static void selectionSort(int[] arrayToSort){
     for(int index = 0;index<n-1;index++){
