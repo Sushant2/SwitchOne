@@ -27,6 +27,7 @@ public static void merge(int[] arr, int low, int mid, int high){
     }
 
     //insert back tempArr to arr
+    //temp.get(i-low) cos every time there is diff low in recursion, so i-low to get from 0-0, 1-0, 2-0...
     for(int i = low;i<=high;i++){
         arr[i] = tempArr.get(i-low);
     }
