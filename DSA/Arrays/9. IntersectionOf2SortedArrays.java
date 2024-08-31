@@ -46,3 +46,6 @@ public int[] intersection(int[] nums1, int[] nums2) {
     }
     return inter;
 }
+
+// Time Compl - O(n)
+//Space Compl - O(1)
