@@ -3,6 +3,7 @@
 // - For all integers with the same sign, the order in which they were present in nums is preserved.
 // - The rearranged array begins with a positive integer.
 
+//leetcode - 2149
 //Brute Force
 class Solution {
     public int[] rearrangeArray(int[] nums) {
@@ -61,3 +62,54 @@ class Solution {
 
 //Time Compl - O(n)
 //Space Compl - O(1)
+
+//Another variety where - no of pos & no of negs are not equal
+//so add rem elements in same order as in original array
+//eg - input : [-1, 2, 3, 4, -3, 1]
+//output : [2, -1, 3, -3, 4, 1]
+
+//Optimal approach will not work, it will onyl work where no of pos & no of negs are equal
+//so use brute force approach
+
+
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        //Brute Force
+        int n = nums.length;
+        ArrayList<Integer> arrPos = new ArrayList<>();
+        ArrayList<Integer> arrNeg = new ArrayList<>();
+        for(int ele : nums){
+            if(ele > 0)
+                arrPos.add(ele);
+            else
+                arrNeg.add(ele);
+        }
+        int[] res = new int[n];
+        int arrNegSize = arrNeg.size();
+        int arrPosSize = arrPos.size();
+        if(arrPosSize > arrNegSize){
+            for(int i = 0;i<arrNegSize;i++){
+                res[i*2] = arrPos.get(i);
+                res[i*2+1] = arrNeg.get(i);
+            }
+            //add remaining positive numbers
+            int idx = arrNegSize*2;
+            for(int i = arrNeg;i<arrPosSize;i++)
+                res[idx++] = arrPos.get(i);
+        }else{
+            for(int i = 0;i<arrPosSize;i++){
+                res[i*2] = arrPos.get(i);
+                res[i*2+1] = arrNeg.get(i);
+            }
+            //add remaining positive numbers
+            int idx = arrPosSize*2;
+            for(int i = arrPosSize;i<arrNegSize;i++)
+                res[idx++] = arrNeg.get(i);
+        }
+
+        return res;
+    }
+}
+
+//Time Compl - O(2n)
+//Space Compl - O(n)
