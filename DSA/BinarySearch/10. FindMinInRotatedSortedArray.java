@@ -12,6 +12,11 @@ class Solution {
         if(n==1) return nums[0];
         while(low <= high){
             int mid = (low+high)/2;
+            //if serarch space is already sorted, then nums[low] is ans
+            if(nums[low] <= nums[high]){
+                mini = Math.min(mini, nums[low]);
+                break;
+            } 
             //if nums[i] > nums[i+1] --> nums[i+1] is ans
             if(low < high && nums[mid] > nums[mid+1])
                 return nums[mid+1];
