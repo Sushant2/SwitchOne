@@ -93,3 +93,8 @@ class Solution {
         return new ArrayList<>(triplets);
     }
 }
+
+//time compl - O(nlogn) + O(n^2)
+//O(nlogn) for sorting the array and O(n^2)iterating the array elements using 3 pointes
+
+//space compl - O(1) auxiliary space
