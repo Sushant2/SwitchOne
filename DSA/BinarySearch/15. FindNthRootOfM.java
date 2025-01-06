@@ -62,3 +62,5 @@ class Solution {
         return -1;
     }
 }
+
+//time compl is same as above, it just handles the overflow while multiplication
