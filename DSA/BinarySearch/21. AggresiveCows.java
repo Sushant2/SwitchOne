@@ -41,7 +41,7 @@ public class Solution {
 }
 
 
-//time compl - O(n * n)
+//time compl - O(n * n) + O(nlogn)for sorting
 //space compl - O(1)
 
 //using binary search
@@ -88,5 +88,5 @@ public class Solution {
     }
 }
 
-//time compl - O(logn*n)
+//time compl - O(logn*n) + O(nlogn) for sorting
 //space compl - O(1)
