@@ -90,3 +90,48 @@ public class Solution {
 //time compl - O(nlogn) + O(k*logn)
 //space compl - O(n-1) in PQ
 
+//using BINARY SEARCH
+//reducing space complexity
+
+public class Solution {
+    public static int getHowManyPlaced(double dist, int[] arr){
+        int totalStationsPlaced = 0;
+        //run for all section length
+        for(int i = 1;i<arr.length;i++){
+            int noOfStations = (int)((arr[i] - arr[i-1])/dist);
+            //check edge case - when completely divisble, means 1 less station will be placed
+            if((arr[i] - arr[i-1]) == (dist * noOfStations))
+                noOfStations -= 1;
+            totalStationsPlaced += noOfStations;
+        }
+        return totalStationsPlaced;
+    }
+    public static double MinimiseMaxDistance(int []arr, int K){
+        //Using Binary Search
+        //our range will be from 0 to maxDist between two consecutive stations
+        int len = arr.length;
+        double low = 0;
+        double high = 0;
+        for(int i = 0;i<len-1;i++){
+            high = Math.max(high, (double)(arr[i+1]-arr[i]));
+        }
+
+        //instead of normal binary search for integers, we'll do it for decimal with some tweaks
+        //as to return answer in decimal : Answers within 10^-6 of the actual answer will be accepted.
+        double diff = 1e-6;
+        while(high - low > diff){
+            double midDist = (low+high)/(2.0);
+            int howManyPlaced = getHowManyPlaced(midDist, arr);
+            if(howManyPlaced > K){
+                //if more required for midDist - goto right
+                low = midDist;
+            }else{
+                high = midDist;
+            }
+        }
+        return high; //can return either low or high as their difference is beyond 10^(-6)
+    }
+}
+
+//time compl - O(n) + O(logn*n)
+//space compl - O(1)
