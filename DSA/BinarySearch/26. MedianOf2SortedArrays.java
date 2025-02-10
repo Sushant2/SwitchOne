@@ -37,7 +37,7 @@ class Solution {
 //space compl - O(m+n)
 
 //better approach
-//using binary search
+//using observation
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         //Brute force
