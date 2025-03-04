@@ -104,3 +104,6 @@ class Solution {
         return -1;
     }
 }
+
+//time compl - O(log(min(m,n)))
+//space compl - O(1)
