@@ -84,3 +84,34 @@ public class Solution {
 
 //time compl - O(3n)
 //space compl - O(1)
+
+//Optimal Approach
+//take 2 pointers, both keep searching each other until they meet(at a node or null)
+//if a pointers reaches null first & can't find the other node, it'll chhange the path of search(reinitialise with opposite head)
+//similary other another node will do the same
+
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    //base case
+    if(headA == null || headB == null)
+        return null;
+    //take 2 pointers
+    ListNode tempA = headA, tempB = headB;
+
+    //keeping searching until they point to the same node
+    while(tempA != tempB){
+        tempA = tempA.next;
+        tempB = tempB.next;
+        if(tempA == tempB){
+            return tempA;
+        }
+        if(tempA == null)
+            tempA = headB;
+        if(tempB  == null)
+            tempB = headA;
+    }
+    //when first node itself is intersection point(so it'll no go inside while loop)
+    return tempA;
+}
+
+//time compl - O(n+m)
+//space compl - O(1)
